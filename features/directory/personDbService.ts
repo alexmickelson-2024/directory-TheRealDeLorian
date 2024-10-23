@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import { AttributeStatus, DirectoryUser } from "./personModel";
+import { AttributeStatus, PersonModel } from "./personModel";
 
 const pool = new Pool({
   host: process.env.POSTGRES_HOST,
@@ -8,7 +8,6 @@ const pool = new Pool({
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
 });
-
 
 export const personDbService = {
   createUser: async ({
@@ -49,7 +48,7 @@ export const personDbService = {
     );
   },
   getAllUsers: async () => {
-    const res = await pool.query<DirectoryUser>(`
+    const res = await pool.query<PersonModel>(`
       select 
         id,
         first_name,
