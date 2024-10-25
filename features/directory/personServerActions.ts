@@ -9,7 +9,7 @@ export async function CreatePerson()
     last_name: "shmiggit",
     phone:"53458345",
     email: "thrh@jgli.sdfs",
-    first_name_status,
+    first_name_status: "",
     last_name_status,
     phone_status,
     email_status
