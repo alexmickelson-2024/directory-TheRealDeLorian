@@ -6,14 +6,12 @@ export default async function Home() {
 
   return (
     <div>
-      <main>
-        <div className="container mx-auto">
-          {users.map((user) => (
-              <ContactCard key={user.id} user={user} />
-          ))}
-        </div>
-      </main>
-      <footer></footer>
+      <div className="max-w-sm mx-auto">
+        <div className="text-center font-bold">Contacts</div>
+        {users.map((user) => (
+          <ContactCard key={user.id} user={user} />
+        ))}
+      </div>
     </div>
   );
 }

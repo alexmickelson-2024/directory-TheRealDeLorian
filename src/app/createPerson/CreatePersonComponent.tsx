@@ -1,6 +1,6 @@
 "use client"
 
-export default async function CreatePerson() {
+export default function CreatePerson() {
   return (
     <div>
 <button className="rounded border-cyan-800 bg-cyan-900">

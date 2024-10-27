@@ -9,16 +9,15 @@ interface ContactCardProps {
 
 export const ContactCard: React.FC<ContactCardProps> = ({ user }) => {
   return (
-    <Link href={`userDetail/${user.id}`} passHref>
-
-    <div>
-      <div className="bg-slate-200 rounded p-4 m-2 max-w-xs cursor-pointer hover:bg-slate-300 transition-colors">
-        <div>
-        <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
+    <Link href={`userDetail`} passHref>
+        <div className="bg-white shadow-lg p-6 gap-x-4 flex items-center rounded-lg m-2 max-w-xs cursor-pointer hover:bg-slate-100 transition-colors">
+            <UserCircleIcon
+              className="h-16 w-16 fill-slate-300"
+              aria-hidden="true"
+            />
+            
+            {user.first_name} {user.last_name}
         </div>
-        {user.first_name} {user.last_name} {user.email}
-      </div>
-    </div>
     </Link>
   );
 };

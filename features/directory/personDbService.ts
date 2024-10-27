@@ -65,4 +65,23 @@ export const personDbService = {
     console.log(res.rows);
     return res.rows;
   },
+  getUserById: async (id: number) => {
+    id = Math.floor(Math.random() * 4) + 1
+    const res = await pool.query<DirectoryUser>(`
+      select 
+        id,
+        first_name,
+        last_name,
+        phone,
+        email,
+        first_name_status,
+        last_name_status,
+        phone_status,
+        email_status
+      from directory_user
+      where id = ${id}
+    `);
+    console.log(res.rows);
+    return res.rows;
+  },
 };
