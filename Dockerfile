@@ -5,10 +5,10 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-ENV POSTGRES_HOST = localhost
-ENV POSTGRES_USER = test-user
-ENV POSTGRES_PASSWORD = test-password
-ENV POSTGRES_DB = db
+ENV POSTGRES_HOST=localhost
+ENV POSTGRES_USER=test-user
+ENV POSTGRES_PASSWORD=test-password
+ENV POSTGRES_DB=db
 RUN npm run build
  
 FROM nginx
