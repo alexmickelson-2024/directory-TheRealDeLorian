@@ -5,7 +5,6 @@ import NavLinks from "./nav-links";
 import Providers from "../../features/authentication/providers";
 import LoginLogoutButton from "../../features/authentication/AuthSetup";
 import { cookies } from "next/headers";
-import { collectRoutesUsingEdgeRuntime } from "next/dist/build/utils";
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
 const geistSans = localFont({
