@@ -4,8 +4,8 @@ import "./globals.css";
 import NavLinks from "./nav-links";
 import Providers from "../../features/authentication/providers";
 import LoginLogoutButton from "../../features/authentication/AuthSetup";
-import { cookies } from "next/headers";
-import { createRemoteJWKSet, jwtVerify } from "jose";
+// import { cookies } from "next/headers";
+// import { createRemoteJWKSet, jwtVerify } from "jose";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,35 +25,35 @@ export const metadata: Metadata = {
 
 //lookup jose npm docs
 
-export async function getUserFromCookie() {
-  const cookieLookup = cookies();
-  const authToken = (await cookieLookup).get("jwt_token");
-  console.log(authToken);
+// export async function getUserFromCookie() {
+//   const cookieLookup = cookies();
+//   const authToken = (await cookieLookup).get("jwt_token");
+//   console.log(authToken);
 
-  const JWKS = createRemoteJWKSet(
-    new URL('https://auth.snowse.duckdns.org/auth/realms/advanced-frontend/protocol/openid-connect/certs')
-  );
-  if (authToken) {
-    console.log("authtoken exists")
-    const { payload, protectedHeader } = await jwtVerify(
-      authToken.toString(),
-      JWKS,
-      {
-        issuer: "https://auth.snowse.duckdns.org/realms/advanced-frontend",
-        audience: "dorian-class-demo",
-      }
-    );
-    console.log(protectedHeader);
-    console.log(payload);
-  }
-}
+//   const JWKS = createRemoteJWKSet(
+//     new URL('https://auth.snowse.duckdns.org/auth/realms/advanced-frontend/protocol/openid-connect/certs')
+//   );
+//   if (authToken) {
+//     console.log("authtoken exists")
+//     const { payload, protectedHeader } = await jwtVerify(
+//       authToken.toString(),
+//       JWKS,
+//       {
+//         issuer: "https://auth.snowse.duckdns.org/realms/advanced-frontend",
+//         audience: "dorian-class-demo",
+//       }
+//     );
+//     console.log(protectedHeader);
+//     console.log(payload);
+//   }
+// }
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(getUserFromCookie());
+  // console.log(getUserFromCookie());
 
   return (
     <html lang="en">
