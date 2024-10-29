@@ -18,7 +18,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker compose up --build
+          docker compose up --build -d
           docker build \
             -t doriancottle/dorian-nextjs:${{ github.run_number }} \
             -t doriancottle/dorian-nextjs:latest \
