@@ -7,6 +7,7 @@ COPY . .
 
 
 RUN npm run build
+RUN docker compose up --build
  
 FROM nginx
 
