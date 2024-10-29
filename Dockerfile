@@ -6,8 +6,8 @@ RUN npm install
 COPY . .
 
 
-RUN npm run build
 RUN docker compose up --build
+RUN npm run build
  
 FROM nginx
 
