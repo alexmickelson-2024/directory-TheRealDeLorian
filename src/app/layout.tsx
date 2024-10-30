@@ -4,8 +4,8 @@ import "./globals.css";
 import NavLinks from "./nav-links";
 import Providers from "../../features/authentication/providers";
 import LoginLogoutButton from "../../features/authentication/AuthSetup";
-import { cookies } from "next/headers";
-import { createRemoteJWKSet, jwtVerify } from "jose";
+import { getUserFromCookie } from "../../features/authentication/getUserFromCookie";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,29 +25,7 @@ export const metadata: Metadata = {
 
 //lookup jose npm docs
 
-export async function getUserFromCookie() { //extract this
-  const cookieLookup = cookies();
-  const authToken = (await cookieLookup).get("jwt_token");
-  console.log("authtoken: ", authToken);
-  
-  if (authToken) {
-    const JWKS = createRemoteJWKSet(
-      new URL('https://auth.snowse.duckdns.org/realms/advanced-frontend/protocol/openid-connect/certs')
-    );
-    console.log("authtoken exists")
-    const { payload, protectedHeader } = await jwtVerify(
-      authToken.value,
-      JWKS,
-      {
-        issuer: "https://auth.snowse.duckdns.org/realms/advanced-frontend",
-        audience: "dorian-class-demo",
-      }
-    );
-    //use data from payload to make an instance of muUserModel and return it
-    console.log("payload: ", payload); //payload.sub is the guid, use email anyway to ID users. 
-    console.log("protected header: ", protectedHeader);
-  }
-}
+
 
 //emails are a good unique identifier
 //also keycloak id
@@ -58,7 +36,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await getUserFromCookie();
-//display all the "user."s //no more useauth hook. just getuser from cookie. pass as parameter to client components
+  
   return (
     <html lang="en">
       <Providers>
@@ -67,6 +45,9 @@ export default async function RootLayout({
         >
           <header>
             <div>
+              {(user != null) ? 
+                <div>name: {user.givenName} {user.familyName}</div> : ""
+              }
               <NavLinks />
               <LoginLogoutButton></LoginLogoutButton>
               {children}
