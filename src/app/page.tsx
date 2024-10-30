@@ -10,7 +10,6 @@ export default async function Home() {
   return (
     <div>
       <div className="max-w-sm mx-auto">
-        your name is {user?.givenName}
         <div className="text-center font-bold">Contacts</div>
         {users.map((user) => (
           <ContactCard key={user.id} user={user} />

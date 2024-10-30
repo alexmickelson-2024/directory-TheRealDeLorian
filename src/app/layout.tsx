@@ -35,7 +35,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getUserFromCookie();
+  const user = await getUserFromCookie(); //use this to get logged in user information on any page.tsx
   
   return (
     <html lang="en">

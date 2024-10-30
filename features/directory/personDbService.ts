@@ -65,8 +65,7 @@ export const personDbService = {
     // console.log(res.rows);
     return res.rows;
   },
-  getUserById: async (id: number) => {
-    id = Math.floor(Math.random() * 4) + 1
+  getUserById: async (id: string) => {
     const res = await pool.query<DirectoryUser>(`
       select 
         id,
@@ -79,9 +78,8 @@ export const personDbService = {
         phone_status,
         email_status
       from directory_user
-      where id = ${id}
-    `);
-    console.log(res.rows);
-    return res.rows;
-  },
+      where id = $1
+    `, [id]);  // Use parameterized query for safety
+    return res.rows[0]; // Return the first user in the result
+  },  
 };

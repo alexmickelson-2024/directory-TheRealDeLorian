@@ -1,15 +1,18 @@
 import React from "react";
-import { personDbService } from "../../../features/directory/personDbService";
+import { personDbService } from "../../../../features/directory/personDbService";
 import UserCircleIcon from "@heroicons/react/24/solid/esm/UserCircleIcon";
 
-export default async function UserDetail() {
-  const users = await personDbService.getUserById(1);
+interface UserDetailProps {
+  params: { userId: string };
+}
 
+export default async function UserDetail({ params }: UserDetailProps) {
+  const userId = params.userId
+  const user = await personDbService.getUserById(userId);
 
   return (
     <>
       <div className="">
-        {users.map((user) => (
             <div key={user.id} className="px-6 py-3 max-w-sm mx-auto bg-white rounded-lg shadow-lg">
               <div className="flex gap-x-4">
                 <div>
@@ -36,7 +39,7 @@ export default async function UserDetail() {
                 </div>
               </div>
             </div>
-        ))}
+        
       </div>
     </>
   );
