@@ -62,7 +62,7 @@ export const personDbService = {
         email_status
       from directory_user
     `);
-    console.log(res.rows);
+    // console.log(res.rows);
     return res.rows;
   },
   getUserById: async (id: number) => {

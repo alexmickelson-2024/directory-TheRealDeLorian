@@ -11,7 +11,6 @@ const oidcConfig: AuthProviderProps = {
   redirect_uri: "http://localhost:3000/",
 
   onSigninCallback: async (user) => {
-    console.log("IT WORKED!!");
     const newUrl = window.location.href.split('?')[0];
     window.history.replaceState({}, document.title, newUrl);
     console.log("sign in callback, ", user?.id_token);
