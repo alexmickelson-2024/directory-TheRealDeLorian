@@ -20,6 +20,7 @@ export default function LoginLogoutButton() {
     }
  
     if (auth.isAuthenticated) {
+        // console.log(auth.user?.access_token);
         return (
             <div>
                 Hello {auth.user?.profile.sub}{" "}
