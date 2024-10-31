@@ -21,19 +21,17 @@ export default function LoginLogoutButton() {
 
     if (auth.isAuthenticated) {
         return (
-            <div>
-                Hello {auth.user?.profile.email}{" "}
-                <button
+            <div className="p-6"
                     onClick={() => {
                         document.cookie = "jwt_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
                         void auth.removeUser();
                     }}
                 >
                     Log Out
-                </button>
+                
             </div>
         );
     }
 
-    return <button onClick={() => void auth.signinRedirect()}>Log In</button>;
+    return <div className="p-6" onClick={() => void auth.signinRedirect()}>Log In</div>;
 }

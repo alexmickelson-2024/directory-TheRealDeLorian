@@ -45,11 +45,7 @@ export default async function RootLayout({
         >
           <header>
             <div>
-              {(user != null) ? 
-                <div>name: {user.givenName} {user.familyName}</div> : ""
-              }
               <NavLinks />
-              <LoginLogoutButton></LoginLogoutButton>
               {children}
             </div>
           </header>
