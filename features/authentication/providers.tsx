@@ -13,7 +13,7 @@ const oidcConfig: AuthProviderProps = {
   onSigninCallback: async (user) => {
     const newUrl = window.location.href.split('?')[0];
     window.history.replaceState({}, document.title, newUrl);
-    console.log("sign in callback, ", user?.id_token);
+    // console.log("sign in callback, ", user?.id_token);
     document.cookie = `jwt_token=${user?.id_token}`
   },
 };

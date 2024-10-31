@@ -17,4 +17,5 @@ INSERT INTO directory_user (
 ('John', 'Doe', '123-456-7890', 'john.doe@example.com', 'WEB_VISIBLE', 'PRIVATE', 'WEB_VISIBLE', 'WEB_VISIBLE'),
 ('Jane', 'Smith', '987-654-3210', 'jane.smith@example.com', 'WEB_VISIBLE', 'WEB_VISIBLE', 'PRIVATE', 'PRIVATE'),
 ('Alice', 'Johnson', '555-123-4567', 'alice.johnson@example.com', 'WEB_VISIBLE', 'WEB_VISIBLE', 'PRIVATE', 'WEB_VISIBLE'),
-('Bob', 'Brown', '555-987-6543', 'bob.brown@example.com', 'WEB_VISIBLE', 'WEB_VISIBLE', 'WEB_VISIBLE', 'PRIVATE');
+('Bob', 'Brown', '555-987-6543', 'bob.brown@example.com', 'WEB_VISIBLE', 'WEB_VISIBLE', 'WEB_VISIBLE', 'PRIVATE'),
+('Dorian', 'Cottle', '555-987-6543', 'dorian.cottle@students.snow.edu', 'WEB_VISIBLE', 'WEB_VISIBLE', 'WEB_VISIBLE', 'PRIVATE');

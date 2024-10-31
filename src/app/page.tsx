@@ -4,7 +4,6 @@ import { ContactCard } from "./components/ContactCard";
 
 export default async function Home() {
   const users = await personDbService.getAllUsers();
-  const user = await getUserFromCookie();
 
 
   return (

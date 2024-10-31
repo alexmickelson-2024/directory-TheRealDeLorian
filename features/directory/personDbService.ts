@@ -79,7 +79,34 @@ export const personDbService = {
         email_status
       from directory_user
       where id = $1
-    `, [id]);  // Use parameterized query for safety
-    return res.rows[0]; // Return the first user in the result
+    `, [id]); 
+    return res.rows[0];
   },  
+  editUser: async (user: DirectoryUser) => {
+    const res = await pool.query(`
+      UPDATE directory_user
+      SET 
+        first_name = $1,
+        last_name = $2,
+        phone = $3,
+        email = $4,
+        first_name_status = $5,
+        last_name_status = $6,
+        phone_status = $7,
+        email_status = $8
+      WHERE id = $9
+    `, [
+      user.first_name,
+      user.last_name,
+      user.phone,
+      user.email,
+      user.first_name_status,
+      user.last_name_status,
+      user.phone_status,
+      user.email_status,
+      user.id
+    ]);
+    console.log("database update success: ", res);
+    return; 
+  }
 };
