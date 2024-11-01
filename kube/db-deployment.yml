@@ -20,4 +20,10 @@ spec:
         image: doriancottle/dorian-db:${IMAGE_TAG}  
         ports:
         - containerPort: 80
- 
+        volumeMounts:
+        - name: db-storage
+          mountPath: /storage  
+      volumes:
+      - name: db-storage
+        persistentVolumeClaim:
+          claimName: dorian-db-pvc 
