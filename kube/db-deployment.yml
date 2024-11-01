@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: dorian-nextjs
+  name: dorian-db
+  labels:
+    app: dorian-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dorian-db
+  template:
+    metadata:
+      labels:
+        app: dorian-db
+    spec:
+      containers:
+      - name: dorian-db-container
+        image: doriancottle/dorian-db:${IMAGE_TAG}  
+        ports:
+        - containerPort: 80
+ 
