@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react";
-import { personDbService } from "../../../../features/directory/personDbService";
 import { DirectoryUser } from "../../../../features/directory/personModel";
 
 interface UserDetailProps {
@@ -9,7 +8,7 @@ interface UserDetailProps {
 }
 
 export default function EditForm({ user }: UserDetailProps) {
-  const selectedUserId = user.id;
+  // const selectedUserId = user.id;
   const [firstName, setFirstName] = useState(user.first_name);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {

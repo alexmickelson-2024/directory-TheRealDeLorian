@@ -3,12 +3,10 @@ import UserCircleIcon from "@heroicons/react/24/solid/esm/UserCircleIcon";
 import { getUserFromCookie } from "../../../../features/authentication/getUserFromCookie";
 import EditForm from "./EditForm";
 
-interface UserDetailProps {
-  params: { userId: string };
-}
 
-export default async function UserDetail({ params }: UserDetailProps) {
-  const selectedUserId = params.userId;
+
+export default async function UserDetail({ params }: {params: Promise<{userId: string}>}) {
+  const selectedUserId = (await params).userId;
   const selectedUser = await personDbService.getUserById(selectedUserId);
   const currentLoggedInUser = await getUserFromCookie();
 

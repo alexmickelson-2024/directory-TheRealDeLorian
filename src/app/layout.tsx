@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavLinks from "./nav-links";
 import Providers from "../../features/authentication/providers";
-import LoginLogoutButton from "../../features/authentication/AuthSetup";
 import { getUserFromCookie } from "../../features/authentication/getUserFromCookie";
 
 
@@ -45,6 +44,7 @@ export default async function RootLayout({
         >
           <header>
             <div>
+              {user ? user.givenName : ""}
               <NavLinks />
               {children}
             </div>

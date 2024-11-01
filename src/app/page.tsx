@@ -1,10 +1,8 @@
-import { getUserFromCookie } from "../../features/authentication/getUserFromCookie";
 import { personDbService } from "../../features/directory/personDbService";
 import { ContactCard } from "./components/ContactCard";
 
 export default async function Home() {
   const users = await personDbService.getAllUsers();
-
 
   return (
     <div>
