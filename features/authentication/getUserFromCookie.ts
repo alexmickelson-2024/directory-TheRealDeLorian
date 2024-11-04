@@ -10,7 +10,6 @@ export async function getUserFromCookie() {
     const JWKS = createRemoteJWKSet(
       new URL('https://auth.snowse.duckdns.org/realms/advanced-frontend/protocol/openid-connect/certs')
     );
-    console.log("authtoken exists")
     try {
 
       const { payload, protectedHeader } = await jwtVerify(
