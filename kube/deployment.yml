@@ -22,7 +22,7 @@ spec:
         - containerPort: 3000
         env:
         - name: POSTGRES_HOST
-          value: next-db-service
+          value: dorian-db-svc
         - name: POSTGRES_USER
           value: test-user
         - name: POSTGRES_PASSWORD
