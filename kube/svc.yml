@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
- namespace: dorian-nextjs
  name: dorian-nextjs-app-svc
+ namespace: dorian-nextjs
 spec: 
   type: ClusterIP
   selector:
     app: dorian-nextjs-app
   ports:
-    - port: 80
-      targetPort: 80
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP

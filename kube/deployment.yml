@@ -19,5 +19,16 @@ spec:
       - name: dorian-nextjs-container
         image: doriancottle/dorian-nextjs:${IMAGE_TAG}  
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+        env:
+        - name: POSTGRES_HOST
+          value: next-db-service
+        - name: POSTGRES_USER
+          value: test-user
+        - name: POSTGRES_PASSWORD
+          value: test-password
+        - name: POSTGRES_DB
+          value: db
+        - name: NEXT_PUBLIC_REDIRECT_URI
+          value: https://dorjs.duckdns.org/
  
