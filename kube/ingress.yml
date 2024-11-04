@@ -4,7 +4,7 @@ metadata:
   name: dorian-nextjs-ingress
   namespace: dorian-nextjs
 spec: 
-  # ingressClassName: nginx
+  ingressClassName: nginx
   rules: 
   - host: dorjs.duckdns.org
     http: 
