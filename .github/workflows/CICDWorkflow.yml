@@ -37,8 +37,8 @@ jobs:
               cat "$file" | envsubst | kubectl apply -f -;
           done
 
-          kubectl -n dorian-nextjs delete configmap next-postgres-init || true
-          kubectl -n dorian-nextjs create configmap next-postgres-init --from-file=./schema.sql
+          kubectl -n dorian-nextjs delete configmap dorian-postgres-init || true
+          kubectl -n dorian-nextjs create configmap dorian-postgres-init --from-file=./schema.sql
          
       
       
