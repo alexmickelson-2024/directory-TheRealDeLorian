@@ -22,7 +22,6 @@ export default function NavLinks() {
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (
-            <>
             <Link
             key={link.name}
             href={link.href}
@@ -31,7 +30,6 @@ export default function NavLinks() {
             <LinkIcon className="w-6 h-6" />
             <span className="hidden md:block ml-2">{link.name}</span>
           </Link>
-            </>
           );
         })}
         <div className="flex items-center justify-end rounded text-gray-700 hover:bg-gray-200 hover:text-gray-900 transition duration-200 cursor-pointer">

@@ -12,7 +12,7 @@ export async function getUserFromCookie() {
     );
     try {
 
-      const { payload, protectedHeader } = await jwtVerify(
+      const { payload, protectedHeader, key } = await jwtVerify(
         authToken.value,
         JWKS,
         {
